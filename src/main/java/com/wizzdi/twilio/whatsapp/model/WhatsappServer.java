@@ -1,6 +1,7 @@
 package com.wizzdi.twilio.whatsapp.model;
 
 import com.flexicore.iot.ExternalServer;
+import com.flexicore.security.SecurityContext;
 
 import javax.persistence.Entity;
 
@@ -9,6 +10,13 @@ public class WhatsappServer extends ExternalServer {
     private String twilioAccountSid;
     private String authenticationToken;
 
+
+    public WhatsappServer() {
+    }
+
+    public WhatsappServer(String name, SecurityContext securityContext) {
+        super(name, securityContext);
+    }
 
     public String getTwilioAccountSid() {
         return twilioAccountSid;
