@@ -1,5 +1,7 @@
 package com.wizzdi.twilio.whatsapp.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.flexicore.data.jsoncontainers.Views;
 import com.flexicore.iot.ExternalServer;
 import com.flexicore.security.SecurityContext;
 
@@ -7,7 +9,9 @@ import javax.persistence.Entity;
 
 @Entity
 public class WhatsappServer extends ExternalServer {
+    @JsonView(Views.ForSwaggerOnly.class)
     private String twilioAccountSid;
+    @JsonView(Views.ForSwaggerOnly.class)
     private String authenticationToken;
 
 
@@ -18,6 +22,7 @@ public class WhatsappServer extends ExternalServer {
         super(name, securityContext);
     }
 
+    @JsonView(Views.ForSwaggerOnly.class)
     public String getTwilioAccountSid() {
         return twilioAccountSid;
     }
@@ -27,6 +32,7 @@ public class WhatsappServer extends ExternalServer {
         return (T) this;
     }
 
+    @JsonView(Views.ForSwaggerOnly.class)
     public String getAuthenticationToken() {
         return authenticationToken;
     }
